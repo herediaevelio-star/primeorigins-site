@@ -3,6 +3,9 @@
      page: espresso darks, oat neutrals, and sage + gold as secondary colors balance it. */
   --deep: #2e2420;    /* espresso: dark sections, headings */
   --deep-2: #4a3a33;
+  --hero: #3d1f1c;     /* red-brown: the hero leans red without going full oxblood */
+  --oxblood: #4b1b1f; /* dark band from the packaging */
+  --rose: #f3d9d4;
   --cream: #f8f3ea;   /* page background */
   --blush: #efe5d6;   /* oat: soft panels and light text on dark */
   --red: #b04e4e;     /* brand red for text + buttons: 5.2:1 with white */
@@ -62,7 +65,7 @@ header {
 .menu-toggle span { display: block; width: 22px; height: 2px; background: var(--deep); margin: 5px 0; }
 
 /* Hero */
-.hero { background: var(--deep); color: var(--cream); overflow: hidden; position: relative; }
+.hero { background: var(--hero); color: var(--cream); overflow: hidden; position: relative; }
 .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; padding-top: 96px; padding-bottom: 104px; }
 .hero h1 { font-size: clamp(44px, 6.4vw, 84px); letter-spacing: -.02em; margin: 18px 0 22px; }
 .hero h1 em { font-style: italic; color: var(--peach); font-weight: 400; }
@@ -98,7 +101,7 @@ header {
 .chip.c3 { bottom: 4%; left: 8%; }
 
 /* Marquee */
-.strip { background: var(--gold); color: var(--deep); overflow: hidden; white-space: nowrap; padding: 14px 0; }
+.strip { background: var(--red); color: var(--white); overflow: hidden; white-space: nowrap; padding: 14px 0; }
 .strip-track { display: inline-flex; gap: 48px; animation: scroll 30s linear infinite; font-family: "Fraunces", serif; font-size: 20px; font-style: italic; }
 .strip-track span::after { content: "✦"; margin-left: 48px; font-style: normal; opacity: .7; }
 @keyframes scroll { to { transform: translateX(-50%); } }
@@ -119,7 +122,7 @@ section { padding: 110px 0; }
 .pillar p { color: var(--muted); font-size: 15px; }
 
 /* Label compare */
-.compare { background: var(--blush); }
+.compare { background: var(--rose); }
 .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .labels { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .label-card { background: var(--white); border-radius: var(--radius); padding: 26px; font-size: 14px; }
@@ -146,7 +149,7 @@ section { padding: 110px 0; }
 .product .btn { margin-top: auto; align-self: flex-start; padding: 10px 20px; font-size: 14px; color: var(--deep); }
 
 /* Process */
-.process { background: var(--deep); color: var(--cream); }
+.process { background: var(--oxblood); color: var(--cream); }
 .process .section-head h2 { color: var(--cream); }
 .process .section-head p { color: rgba(251, 243, 240,.75); }
 .process .eyebrow { color: var(--blush); }
@@ -164,7 +167,7 @@ section { padding: 110px 0; }
 /* Pets */
 .pets-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .pet-card { border-radius: var(--radius); padding: 48px; min-height: 300px; display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; }
-.pet-card.dog { background: #f3d3c8; }
+.pet-card.dog { background: #f0c4b8; }
 .pet-card.cat { background: var(--sage-light); }
 .pet-card svg.pet-icon { position: absolute; top: 32px; right: 32px; width: 120px; height: 120px; opacity: .22; color: var(--deep); }
 .pet-card h3 { font-size: 36px; color: var(--deep); margin-bottom: 10px; }
