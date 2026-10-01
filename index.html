@@ -72,7 +72,7 @@
 
     /* Hero */
     .hero { background: var(--forest); color: var(--cream); overflow: hidden; position: relative; }
-    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; padding: 96px 0 104px; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; padding-top: 96px; padding-bottom: 104px; }
     .hero h1 { font-size: clamp(44px, 6.4vw, 84px); letter-spacing: -.02em; margin: 18px 0 22px; }
     .hero h1 em { font-style: italic; color: var(--sand); font-weight: 400; }
     .hero p.lead { font-size: 19px; max-width: 520px; color: rgba(246, 240, 228, .85); margin-bottom: 34px; }
@@ -229,9 +229,12 @@
       .nav.open ul a { display: block; padding: 12px 0; }
       .wrap { padding: 0 16px; }
       section { padding: 76px 0; }
-      .hero-grid { padding: 64px 0 72px; }
+      .hero-grid { padding-top: 64px; padding-bottom: 72px; }
+      .hero-badges { gap: 12px 22px; margin-top: 36px; }
+      .hero-actions .btn { flex: 1 1 0; min-width: 150px; text-align: center; padding-left: 16px; padding-right: 16px; }
       .pillars, .steps, .products, .pets-grid, .labels, .foot-grid { grid-template-columns: 1fr; }
-      .pet-card { padding: 32px; min-height: 240px; }
+      .pet-card { padding: 28px 24px 32px; min-height: 0; }
+      .pet-card svg.pet-icon { position: static; width: 52px; height: 52px; opacity: .35; margin-bottom: 18px; }
       .signup form { flex-direction: column; }
       .chip.c2 { right: 0; }
     }
