@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prime Origins | Single-Ingredient Freeze-Dried Pet Treats</title>
+  <meta name="description" content="Prime Origins makes one-ingredient, freeze-dried treats for dogs and cats. Organic, nothing added, nothing hidden.">
+  <meta property="og:title" content="Prime Origins | One Ingredient. Nothing Else.">
+  <meta property="og:description" content="Single-ingredient, freeze-dried, organic treats for every pet.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://primeorigins.com">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #1f3a2b;
+      --forest-2: #2c4f3b;
+      --cream: #f6f0e4;
+      --sand: #e9dcc3;
+      --clay: #b8643c;
+      --ink: #1d1d1b;
+      --muted: #5d5a52;
+      --white: #fffdf8;
+      --radius: 18px;
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 { font-family: "Fraunces", Georgia, serif; line-height: 1.1; font-weight: 600; }
+    a { color: inherit; }
+    img, svg { display: block; max-width: 100%; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .eyebrow {
+      font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--clay);
+    }
+    .btn {
+      display: inline-block; padding: 14px 26px; border-radius: 999px;
+      font-weight: 600; font-size: 15px; text-decoration: none; transition: transform .15s, background .15s;
+      border: 2px solid transparent; cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--clay); color: var(--white); }
+    .btn-primary:hover { background: #a3542f; }
+    .btn-ghost { border-color: currentColor; }
+
+    /* Nav */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(246, 240, 228, .92); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(31, 58, 43, .08);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo svg { width: 36px; height: 36px; }
+    .logo span { font-family: "Fraunces", serif; font-size: 22px; font-weight: 700; color: var(--forest); letter-spacing: -.01em; }
+    .nav ul { display: flex; gap: 32px; list-style: none; }
+    .nav ul a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--forest); }
+    .nav ul a:hover { color: var(--clay); }
+    .nav .btn { padding: 10px 20px; font-size: 14px; }
+    .menu-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
+    .menu-toggle span { display: block; width: 22px; height: 2px; background: var(--forest); margin: 5px 0; }
+
+    /* Hero */
+    .hero { background: var(--forest); color: var(--cream); overflow: hidden; position: relative; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; padding: 96px 0 104px; }
+    .hero h1 { font-size: clamp(44px, 6.4vw, 84px); letter-spacing: -.02em; margin: 18px 0 22px; }
+    .hero h1 em { font-style: italic; color: var(--sand); font-weight: 400; }
+    .hero p.lead { font-size: 19px; max-width: 520px; color: rgba(246, 240, 228, .85); margin-bottom: 34px; }
+    .hero .eyebrow { color: var(--sand); }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero .btn-ghost { color: var(--cream); }
+    .hero-badges { display: flex; gap: 28px; margin-top: 48px; flex-wrap: wrap; }
+    .hero-badges div { font-size: 14px; color: rgba(246, 240, 228, .75); display: flex; align-items: center; gap: 8px; }
+    .hero-badges svg { width: 18px; height: 18px; color: var(--sand); }
+    .hero-art { position: relative; aspect-ratio: 1; max-width: 460px; justify-self: end; width: 100%; }
+    .hero-art .ring { position: absolute; inset: 0; border-radius: 50%; border: 1px dashed rgba(233, 220, 195, .35); }
+    .hero-art .ring.r2 { inset: 12%; border-style: solid; border-color: rgba(233, 220, 195, .15); }
+    .hero-art .bag {
+      position: absolute; inset: 18% 22%; background: var(--sand); border-radius: 16px 16px 22px 22px;
+      box-shadow: 0 30px 60px rgba(0,0,0,.35); display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: var(--forest); text-align: center; padding: 24px;
+    }
+    .hero-art .bag::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 26px; border-radius: 16px 16px 0 0;
+      background: repeating-linear-gradient(90deg, #d8c8a8 0 6px, var(--sand) 6px 12px);
+    }
+    .bag .b-brand { font-family: "Fraunces", serif; font-weight: 700; font-size: clamp(20px, 2.4vw, 28px); line-height: 1; }
+    .bag .b-line { width: 40px; height: 2px; background: var(--clay); margin: 14px 0; }
+    .bag .b-prod { font-family: "Fraunces", serif; font-style: italic; font-size: clamp(16px, 1.8vw, 20px); }
+    .bag .b-tag { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; margin-top: 10px; color: var(--muted); }
+    .hero-art .chip {
+      position: absolute; background: var(--white); color: var(--forest); border-radius: 999px; padding: 10px 16px;
+      font-size: 13px; font-weight: 600; box-shadow: 0 10px 30px rgba(0,0,0,.25); white-space: nowrap;
+    }
+    .chip.c1 { top: 10%; left: 0; }
+    .chip.c2 { bottom: 14%; right: -2%; }
+    .chip.c3 { bottom: 4%; left: 8%; }
+
+    /* Marquee */
+    .strip { background: var(--clay); color: var(--white); overflow: hidden; white-space: nowrap; padding: 14px 0; }
+    .strip-track { display: inline-flex; gap: 48px; animation: scroll 30s linear infinite; font-family: "Fraunces", serif; font-size: 20px; font-style: italic; }
+    .strip-track span::after { content: "✦"; margin-left: 48px; font-style: normal; opacity: .7; }
+    @keyframes scroll { to { transform: translateX(-50%); } }
+
+    /* Sections */
+    section { padding: 110px 0; }
+    .section-head { max-width: 640px; margin-bottom: 56px; }
+    .section-head h2 { font-size: clamp(34px, 4.4vw, 54px); margin: 12px 0 16px; color: var(--forest); letter-spacing: -.015em; }
+    .section-head p { font-size: 18px; color: var(--muted); }
+    .center { text-align: center; margin-left: auto; margin-right: auto; }
+
+    /* Pillars */
+    .pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .pillar { background: var(--white); border-radius: var(--radius); padding: 32px 26px; border: 1px solid rgba(31,58,43,.08); }
+    .pillar .icon { width: 52px; height: 52px; border-radius: 14px; background: var(--forest); color: var(--sand); display: grid; place-items: center; margin-bottom: 22px; }
+    .pillar .icon svg { width: 26px; height: 26px; }
+    .pillar h3 { font-size: 22px; color: var(--forest); margin-bottom: 10px; }
+    .pillar p { color: var(--muted); font-size: 15px; }
+
+    /* Label compare */
+    .compare { background: var(--sand); }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .labels { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .label-card { background: var(--white); border-radius: var(--radius); padding: 26px; font-size: 14px; }
+    .label-card h4 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px; color: var(--muted); }
+    .label-card.theirs p { color: var(--muted); font-size: 12.5px; line-height: 1.55; }
+    .label-card.ours { background: var(--forest); color: var(--cream); display: flex; flex-direction: column; }
+    .label-card.ours h4 { color: var(--sand); }
+    .label-card.ours .one { font-family: "Fraunces", serif; font-size: 30px; line-height: 1.1; margin-top: auto; }
+    .label-card.ours small { display: block; margin-top: 10px; color: rgba(246,240,228,.7); font-size: 13px; }
+    .compare h2 { font-size: clamp(32px, 4vw, 48px); color: var(--forest); margin: 12px 0 18px; }
+    .compare p { color: #4a463e; font-size: 17px; margin-bottom: 14px; }
+
+    /* Products */
+    .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .product { background: var(--white); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(31,58,43,.08); transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; }
+    .product:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(31,58,43,.10); }
+    .product-art { aspect-ratio: 4/3; display: grid; place-items: center; position: relative; }
+    .product-art .p-letter { font-family: "Fraunces", serif; font-size: 92px; font-weight: 600; color: rgba(255,255,255,.92); line-height: 1; }
+    .product-art .p-pet { position: absolute; top: 16px; left: 16px; background: rgba(255,255,255,.9); color: var(--forest); font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 999px; }
+    .product-body { padding: 24px 24px 28px; display: flex; flex-direction: column; flex: 1; }
+    .product h3 { font-size: 24px; color: var(--forest); }
+    .product .ingredient { font-size: 13px; color: var(--clay); font-weight: 600; margin: 6px 0 12px; letter-spacing: .02em; }
+    .product p { color: var(--muted); font-size: 15px; margin-bottom: 20px; }
+    .product .btn { margin-top: auto; align-self: flex-start; padding: 10px 20px; font-size: 14px; color: var(--forest); }
+
+    /* Process */
+    .process { background: var(--forest); color: var(--cream); }
+    .process .section-head h2 { color: var(--cream); }
+    .process .section-head p { color: rgba(246,240,228,.75); }
+    .process .eyebrow { color: var(--sand); }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: step; }
+    .step { padding: 0 28px 0 0; position: relative; }
+    .step::before {
+      counter-increment: step; content: "0" counter(step);
+      font-family: "Fraunces", serif; font-size: 56px; color: var(--sand); opacity: .9; display: block; margin-bottom: 14px; line-height: 1;
+    }
+    .step::after { content: ""; position: absolute; top: 28px; left: 90px; right: 20px; height: 1px; background: rgba(233,220,195,.25); }
+    .step:last-child::after { display: none; }
+    .step h3 { font-size: 22px; margin-bottom: 10px; }
+    .step p { color: rgba(246,240,228,.75); font-size: 15px; }
+
+    /* Pets */
+    .pets-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .pet-card { border-radius: var(--radius); padding: 48px; min-height: 300px; display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; }
+    .pet-card.dog { background: #d9c3a0; }
+    .pet-card.cat { background: #c9d3c2; }
+    .pet-card svg.pet-icon { position: absolute; top: 32px; right: 32px; width: 120px; height: 120px; opacity: .22; color: var(--forest); }
+    .pet-card h3 { font-size: 36px; color: var(--forest); margin-bottom: 10px; }
+    .pet-card p { color: #3e3b33; max-width: 400px; }
+
+    /* FAQ */
+    .faq { background: var(--white); }
+    .faq-list { max-width: 780px; margin: 0 auto; }
+    details { border-bottom: 1px solid rgba(31,58,43,.14); padding: 24px 0; }
+    summary { cursor: pointer; list-style: none; font-family: "Fraunces", serif; font-size: 21px; color: var(--forest); display: flex; justify-content: space-between; gap: 24px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-family: "Inter", sans-serif; font-size: 24px; color: var(--clay); transition: transform .2s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    details p { margin-top: 14px; color: var(--muted); }
+
+    /* Signup */
+    .signup { background: var(--clay); color: var(--white); text-align: center; }
+    .signup h2 { font-size: clamp(34px, 4.4vw, 54px); margin-bottom: 14px; }
+    .signup p { font-size: 18px; opacity: .9; max-width: 520px; margin: 0 auto 32px; }
+    .signup form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; }
+    .signup input {
+      flex: 1; padding: 15px 22px; border-radius: 999px; border: 0; font: inherit; font-size: 15px; color: var(--ink); min-width: 0;
+    }
+    .signup input:focus { outline: 3px solid var(--sand); }
+    .signup .btn { background: var(--forest); color: var(--white); }
+    .signup .note { font-size: 14px; margin-top: 16px; min-height: 1.4em; }
+
+    /* Footer */
+    footer { background: var(--ink); color: rgba(246,240,228,.7); padding: 64px 0 36px; font-size: 14px; }
+    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    footer .logo span { color: var(--cream); }
+    footer h4 { color: var(--cream); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 16px; font-weight: 600; }
+    footer ul { list-style: none; display: grid; gap: 10px; }
+    footer a { text-decoration: none; }
+    footer a:hover { color: var(--cream); }
+    .foot-bottom { border-top: 1px solid rgba(246,240,228,.12); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero-grid, .compare-grid { grid-template-columns: 1fr; }
+      .hero-art { justify-self: center; max-width: 380px; }
+      .pillars, .steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .step::after { display: none; }
+      .products { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 720px) {
+      .nav ul, .nav .btn { display: none; }
+      .menu-toggle { display: block; }
+      .nav.open ul {
+        display: flex; flex-direction: column; gap: 0; position: absolute; top: 72px; left: 0; right: 0;
+        background: var(--cream); border-bottom: 1px solid rgba(31,58,43,.1); padding: 8px 24px 16px;
+      }
+      .nav.open ul a { display: block; padding: 12px 0; }
+      .wrap { padding: 0 16px; }
+      section { padding: 76px 0; }
+      .hero-grid { padding: 64px 0 72px; }
+      .pillars, .steps, .products, .pets-grid, .labels, .foot-grid { grid-template-columns: 1fr; }
+      .pet-card { padding: 32px; min-height: 240px; }
+      .signup form { flex-direction: column; }
+      .chip.c2 { right: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .strip-track { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap nav" id="nav">
+    <a href="#" class="logo" aria-label="Prime Origins home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1f3a2b"/><path d="M32 14c-9 6-13 14-13 22a13 13 0 0 0 26 0c0-8-4-16-13-22z" fill="#e9dcc3"/><path d="M32 22v26" stroke="#1f3a2b" stroke-width="3" stroke-linecap="round"/></svg>
+      <span>Prime Origins</span>
+    </a>
+    <ul>
+      <li><a href="#why">Why One Ingredient</a></li>
+      <li><a href="#treats">Our Treats</a></li>
+      <li><a href="#process">Freeze-Dried</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#signup" class="btn btn-primary">Get Early Access</a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero" style="padding:0">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Single-Ingredient Pet Treats</div>
+        <h1>One ingredient.<br><em>Nothing else.</em></h1>
+        <p class="lead">Organic, freeze-dried treats made from a single real ingredient. No fillers, no preservatives, no long label to decode. Just pure nutrition your pet will love.</p>
+        <div class="hero-actions">
+          <a href="#treats" class="btn btn-primary">Shop the Treats</a>
+          <a href="#why" class="btn btn-ghost">Our Philosophy</a>
+        </div>
+        <div class="hero-badges">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Organic</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Freeze-dried raw</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Dogs &amp; cats</div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="ring"></div>
+        <div class="ring r2"></div>
+        <div class="bag">
+          <div class="b-brand">Prime<br>Origins</div>
+          <div class="b-line"></div>
+          <div class="b-prod">Beef Liver</div>
+          <div class="b-tag">1 ingredient · freeze-dried</div>
+        </div>
+        <div class="chip c1">✓ 100% organic</div>
+        <div class="chip c2">✓ No preservatives</div>
+        <div class="chip c3">✓ Nutrients locked in</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip" aria-hidden="true">
+    <div class="strip-track">
+      <span>Single ingredient</span><span>Freeze-dried</span><span>Organic</span><span>Locked-in freshness</span><span>For all pets</span>
+      <span>Single ingredient</span><span>Freeze-dried</span><span>Organic</span><span>Locked-in freshness</span><span>For all pets</span>
+    </div>
+  </div>
+
+  <!-- Pillars -->
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">The Prime Origins Promise</div>
+        <h2>Back to the origin of good food.</h2>
+        <p>We believe the best treat is the simplest one. Every Prime Origins treat starts and ends with a single organic ingredient, gently freeze-dried to keep what nature put there.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v8"/></svg></div>
+          <h3>Single Ingredient</h3>
+          <p>One protein per bag. Easy on sensitive stomachs and simple for pets with allergies.</p>
+        </div>
+        <div class="pillar">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v20M4.9 6l14.2 12M19.1 6 4.9 18"/></svg></div>
+          <h3>Freeze-Dried</h3>
+          <p>Low-temperature drying removes moisture while keeping natural flavor, texture and nutrients.</p>
+        </div>
+        <div class="pillar">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 21c0-9 6-15 15-16-1 9-7 15-15 16z"/><path d="M5 21 14 12"/></svg></div>
+          <h3>Organic</h3>
+          <p>Sourced from organic farms. No synthetic additives, hormones or artificial anything.</p>
+        </div>
+        <div class="pillar">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M5 9h14M10 4v-1h4v1"/></svg></div>
+          <h3>Sealed Freshness</h3>
+          <p>Packed in resealable bags so the last treat tastes as fresh as the first.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Label comparison -->
+  <section class="compare">
+    <div class="wrap compare-grid">
+      <div class="labels">
+        <div class="label-card theirs">
+          <h4>Typical treat</h4>
+          <p>Chicken, wheat flour, glycerin, sugar, corn syrup, natural flavor, salt, sorbic acid, potassium sorbate, caramel color, mixed tocopherols, BHA, propylene glycol, dried egg product, garlic powder…</p>
+        </div>
+        <div class="label-card ours">
+          <h4>Prime Origins</h4>
+          <div class="one">Organic<br>beef liver.</div>
+          <small>That's the whole list.</small>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">Read the Label</div>
+        <h2>If you can't pronounce it, your pet shouldn't eat it.</h2>
+        <p>Most treats are built for shelf life, not for your pet. We went the other way: one ingredient you recognize, nothing added.</p>
+        <p>Turn over any bag of Prime Origins and you'll find exactly what's inside, and nothing more.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="treats">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Our Treats</div>
+        <h2>Pick their protein.</h2>
+        <p>Every recipe is a single organic ingredient. Rotate proteins to keep tails wagging.</p>
+      </div>
+      <div class="products">
+        <article class="product">
+          <div class="product-art" style="background:#8a3b2a"><span class="p-pet">Dogs &amp; Cats</span><span class="p-letter">Bl</span></div>
+          <div class="product-body">
+            <h3>Beef Liver</h3>
+            <div class="ingredient">Ingredients: Organic beef liver</div>
+            <p>Rich, savory and naturally packed with vitamins. The training treat pets go wild for.</p>
+            <a href="#signup" class="btn btn-ghost">Notify Me</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-art" style="background:#c79a5b"><span class="p-pet">Dogs &amp; Cats</span><span class="p-letter">Cb</span></div>
+          <div class="product-body">
+            <h3>Chicken Breast</h3>
+            <div class="ingredient">Ingredients: Organic chicken breast</div>
+            <p>Lean, light and crunchy. A gentle everyday treat for pets of every size.</p>
+            <a href="#signup" class="btn btn-ghost">Notify Me</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-art" style="background:#d27a5a"><span class="p-pet">Dogs &amp; Cats</span><span class="p-letter">Sa</span></div>
+          <div class="product-body">
+            <h3>Salmon</h3>
+            <div class="ingredient">Ingredients: Wild-caught salmon</div>
+            <p>Naturally rich in omega-3s for shiny coats and happy skin. A cat favorite.</p>
+            <a href="#signup" class="btn btn-ghost">Notify Me</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-art" style="background:#6e5a44"><span class="p-pet">Dogs &amp; Cats</span><span class="p-letter">Th</span></div>
+          <div class="product-body">
+            <h3>Turkey Heart</h3>
+            <div class="ingredient">Ingredients: Organic turkey heart</div>
+            <p>A nutrient-dense organ meat with a satisfying chew. Great for picky eaters.</p>
+            <a href="#signup" class="btn btn-ghost">Notify Me</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-art" style="background:#4f6b4a"><span class="p-pet">Dogs</span><span class="p-letter">Lb</span></div>
+          <div class="product-body">
+            <h3>Lamb Lung</h3>
+            <div class="ingredient">Ingredients: Organic lamb lung</div>
+            <p>Airy, crispy and low in fat. Breaks into small pieces for easy rewarding.</p>
+            <a href="#signup" class="btn btn-ghost">Notify Me</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-art" style="background:#2f4d5e"><span class="p-pet">Dogs &amp; Cats</span><span class="p-letter">Cl</span></div>
+          <div class="product-body">
+            <h3>Chicken Liver</h3>
+            <div class="ingredient">Ingredients: Organic chicken liver</div>
+            <p>Small, flavorful bites that even the fussiest cats can't resist.</p>
+            <a href="#signup" class="btn btn-ghost">Notify Me</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">How It's Made</div>
+        <h2>Freeze-dried for peak freshness.</h2>
+        <p>Freeze-drying removes water without high heat, so treats keep their natural taste, texture and nutrition, with no preservatives needed.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>Source</h3>
+          <p>We start with a single organic ingredient from trusted farms.</p>
+        </div>
+        <div class="step">
+          <h3>Freeze</h3>
+          <p>Fresh, raw cuts are flash-frozen to lock in flavor and nutrients.</p>
+        </div>
+        <div class="step">
+          <h3>Dry</h3>
+          <p>Under a gentle vacuum, the ice turns straight to vapor. No cooking required.</p>
+        </div>
+        <div class="step">
+          <h3>Seal</h3>
+          <p>Packed fresh in resealable bags, ready for your pet's next good moment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- For all pets -->
+  <section>
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="eyebrow">For All Pets</div>
+        <h2>Made for every member of the pack.</h2>
+      </div>
+      <div class="pets-grid">
+        <div class="pet-card dog">
+          <svg class="pet-icon" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="9" r="2"/><circle cx="9" cy="5" r="2"/><circle cx="15" cy="5" r="2"/><circle cx="19" cy="9" r="2"/><path d="M12 10c-3.5 0-6 4-6 7a3 3 0 0 0 3 3c1.2 0 2-.6 3-.6s1.8.6 3 .6a3 3 0 0 0 3-3c0-3-2.5-7-6-7z"/></svg>
+          <h3>For Dogs</h3>
+          <p>Perfect for training, rewarding and topping their bowl. Easy to break into bite-sized pieces for pups of every size.</p>
+        </div>
+        <div class="pet-card cat">
+          <svg class="pet-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3l3 5h10l3-5v9a8 8 0 0 1-16 0z"/></svg>
+          <h3>For Cats</h3>
+          <p>Pure protein, just the way cats are built to eat. Crumble over meals or serve as a crunchy treat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="eyebrow">Questions</div>
+        <h2>Good to know.</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>What does "single ingredient" mean?</summary>
+          <p>Exactly what it sounds like. Each bag contains one ingredient, the one named on the front. No fillers, binders, flavors or preservatives.</p>
+        </details>
+        <details>
+          <summary>What is freeze-drying?</summary>
+          <p>Freeze-drying removes water from food by freezing it and then gently turning the ice to vapor under vacuum. Because it avoids high heat, more of the food's natural flavor and nutrition is preserved, and it stays shelf-stable without added preservatives.</p>
+        </details>
+        <details>
+          <summary>Are the treats safe for cats too?</summary>
+          <p>Yes. Our treats are made for all pets. Pure animal protein is a natural fit for cats, and most of our recipes are labeled for both dogs and cats.</p>
+        </details>
+        <details>
+          <summary>How should I store them?</summary>
+          <p>Keep the bag sealed in a cool, dry place. No refrigeration needed. Once opened, press the seal closed after each use to keep treats crisp.</p>
+        </details>
+        <details>
+          <summary>How many treats can my pet have?</summary>
+          <p>Treats should make up no more than about 10% of your pet's daily calories. Check the feeding guide on the bag, and talk to your vet if your pet has special dietary needs.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signup -->
+  <section class="signup" id="signup">
+    <div class="wrap">
+      <h2>Be first in line.</h2>
+      <p>Join the Prime Origins list for launch news, new proteins and an exclusive first-order discount.</p>
+      <form onsubmit="return joinList(event)">
+        <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address">
+        <button class="btn" type="submit">Join the List</button>
+      </form>
+      <div class="note" id="signup-note"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="logo" style="margin-bottom:16px">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#e9dcc3"/><path d="M32 14c-9 6-13 14-13 22a13 13 0 0 0 26 0c0-8-4-16-13-22z" fill="#1f3a2b"/><path d="M32 22v26" stroke="#e9dcc3" stroke-width="3" stroke-linecap="round"/></svg>
+          <span>Prime Origins</span>
+        </a>
+        <p style="max-width:320px">Single-ingredient, freeze-dried, organic treats for every pet. One ingredient. Nothing else.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#why">Why One Ingredient</a></li>
+          <li><a href="#treats">Our Treats</a></li>
+          <li><a href="#process">Freeze-Dried</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@primeorigins.com">hello@primeorigins.com</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> Prime Origins. All rights reserved.</span>
+      <span>primeorigins.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function toggleMenu(btn) {
+    const nav = document.getElementById('nav');
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+  document.querySelectorAll('#nav ul a').forEach(a =>
+    a.addEventListener('click', () => document.getElementById('nav').classList.remove('open'))
+  );
+
+  // Placeholder until an email service (Mailchimp, Klaviyo, Formspree) is connected.
+  function joinList(e) {
+    e.preventDefault();
+    document.getElementById('signup-note').textContent = "Thanks! You're on the list.";
+    e.target.reset();
+    return false;
+  }
+</script>
+</body>
+</html>
