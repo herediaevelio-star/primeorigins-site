@@ -3,9 +3,7 @@
 # Run after any logo or palette change, then deploy. Needs rsvg-convert and Google Chrome.
 set -e
 cd "$(dirname "$0")"
-sed -E 's|<rect x="5" y="5" width="90" height="90" rx="20" fill="(#[0-9a-f]+)"/>|<rect x="0" y="0" width="100" height="100" fill="\1"/>|' logo-v2-favicon.svg > icons/icon-square.svg
-sed -e 's#scale(.8)#scale(.72)#' icons/icon-square.svg > icons/icon-apple.svg       # iOS rounds corners
-sed -e 's#scale(.8)#scale(.62)#' icons/icon-square.svg > icons/icon-maskable.svg    # Android safe zone
+python3 make-logo.py
 rsvg-convert -w 180 -h 180 icons/icon-apple.svg    -o ../apple-touch-icon.png
 rsvg-convert -w 192 -h 192 icons/icon-apple.svg    -o ../icon-192.png
 rsvg-convert -w 512 -h 512 icons/icon-apple.svg    -o ../icon-512.png
