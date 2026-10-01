@@ -46,20 +46,22 @@ def mark(dog, cat, bg, tile=None, tile_full=False, scale=1.0):
             f'  {back}{body}\n</svg>\n')
 
 
-ESPRESSO, CORAL, OAT = '#2e2420', '#c46868', '#efe5d6'
-CREAM, INK, OG_TILE = '#f8f3ea', '#1f1916', '#4b2724'
+# Bag palette (2026-10-01): crimson tile, cream dog, gold cat.
+CRIMSON, DEEP, CREAM_DOG, GOLD = '#6c1f21', '#4e1416', '#f8f1e4', '#c9a227'
+PAGE, OG_TILE = '#f8f1e4', '#8a2626'
+ESPRESSO, CORAL, OAT, CREAM, INK = DEEP, GOLD, CREAM_DOG, PAGE, DEEP
 
 out = {
     # site header (cream background) and footer (ink background)
     'brand/logo-v2-mark.svg':          mark(ESPRESSO, CORAL, CREAM),
     'brand/logo-v2-mark-reversed.svg': mark(OAT, CORAL, INK),
     # browser favicon: rounded espresso tile
-    'brand/logo-v2-favicon.svg':       mark(OAT, CORAL, ESPRESSO, tile=ESPRESSO, scale=.8),
+    'brand/logo-v2-favicon.svg':       mark(CREAM_DOG, GOLD, CRIMSON, tile=CRIMSON, scale=.8),
     # full-bleed squares for phone icons (iOS/Android round the corners themselves)
-    'brand/icons/icon-apple.svg':      mark(OAT, CORAL, ESPRESSO, tile=ESPRESSO, tile_full=True, scale=.72),
-    'brand/icons/icon-maskable.svg':   mark(OAT, CORAL, ESPRESSO, tile=ESPRESSO, tile_full=True, scale=.62),
+    'brand/icons/icon-apple.svg':      mark(CREAM_DOG, GOLD, CRIMSON, tile=CRIMSON, tile_full=True, scale=.72),
+    'brand/icons/icon-maskable.svg':   mark(CREAM_DOG, GOLD, CRIMSON, tile=CRIMSON, tile_full=True, scale=.62),
     # link-preview card: sits on the card's mark tile
-    'brand/og/mark-og.svg':            mark(OAT, CORAL, OG_TILE),
+    'brand/og/mark-og.svg':            mark(CREAM_DOG, GOLD, OG_TILE),
 }
 for path, svg in out.items():
     with open(os.path.join(ROOT, path), 'w') as f:

@@ -1,21 +1,17 @@
 :root {
-  /* Brand red comes from the packaging (coral bag #c46868). It is the accent, not the whole
-     page: espresso darks, oat neutrals, and sage + gold as secondary colors balance it. */
-  --deep: #2e2420;    /* espresso: dark sections, headings */
-  --deep-2: #4a3a33;
-  --hero: #3d1f1c;     /* red-brown: the hero leans red without going full oxblood */
-  --oxblood: #4b1b1f; /* dark band from the packaging */
-  --rose: #f3d9d4;
-  --cream: #f8f3ea;   /* page background */
-  --blush: #efe5d6;   /* oat: soft panels and light text on dark */
-  --red: #b04e4e;     /* brand red for text + buttons: 5.2:1 with white */
-  --coral: #c46868;   /* packaging coral, decorative only */
-  --peach: #f2b8a8;
-  --sage: #7d8f6a;
-  --sage-light: #dfe6d6;
-  --gold: #e2b04a;
-  --ink: #1f1916;
-  --muted: #6b625a;
+  /* Palette sampled from the Prime Origins bag artwork (2026-10-01):
+     crimson body #6c1f21, mustard-gold tab, cream wordmark, green leaf. */
+  --crimson: #6c1f21;   /* main brand color: hero, dark sections */
+  --crimson-2: #8a2626; /* brighter crimson: signup, hovers */
+  --crimson-3: #4e1416; /* deepest: footer, process */
+  --gold: #c9a227;      /* text/icons on crimson (4.7:1), buttons with crimson text */
+  --gold-2: #ab911e;    /* the bag's tab gold, surfaces only */
+  --leaf: #3f8f3a;      /* decoration only: fails as text on cream */
+  --cream: #f8f1e4;     /* page background */
+  --paper: #fffaf2;     /* cards */
+  --sand: #efe2cc;      /* soft panels */
+  --ink: #2a1314;
+  --muted: #6b5a52;
   --white: #fffdf9;
   --radius: 18px;
   --max: 1160px;
@@ -35,7 +31,7 @@ img, svg { display: block; max-width: 100%; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 .eyebrow {
   font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--red);
+  color: var(--crimson);
 }
 .btn {
   display: inline-block; padding: 14px 26px; border-radius: 999px;
@@ -43,182 +39,240 @@ img, svg { display: block; max-width: 100%; }
   border: 2px solid transparent; cursor: pointer;
 }
 .btn:hover { transform: translateY(-1px); }
-.btn-primary { background: var(--red); color: var(--white); }
-.btn-primary:hover { background: #973f40; }
+.btn-primary { background: var(--gold); color: var(--crimson-3); }
+.btn-primary:hover { background: #d8b33a; }
 .btn-ghost { border-color: currentColor; }
+
+/* Wordmark: the bag's "PRIME ORIGINS / PET NUTRITION" lockup */
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo img { width: 34px; height: 30px; flex: none; }
+.wordmark { display: flex; flex-direction: column; line-height: 1; }
+.wm-name { font-family: "Fraunces", serif; font-weight: 800; font-size: 21px; letter-spacing: .04em; text-transform: uppercase; color: var(--crimson); }
+.wm-sub { font-size: 9.5px; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
 
 /* Nav */
 header {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(251, 243, 240, .92); backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(75, 27, 31, .08);
+  background: rgba(248, 241, 228, .94); backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(108, 31, 33, .1);
 }
 .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.logo img { width: 44px; height: 44px; display: block; }
-.logo span { font-family: "Fraunces", serif; font-size: 22px; font-weight: 700; color: var(--deep); letter-spacing: -.01em; }
-.nav ul { display: flex; gap: 32px; list-style: none; }
-.nav ul a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--deep); }
-.nav ul a:hover { color: var(--red); }
-.nav .btn { padding: 10px 20px; font-size: 14px; }
+.nav ul { display: flex; gap: 30px; list-style: none; }
+.nav ul a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--ink); }
+.nav ul a:hover { color: var(--crimson); }
+.nav .btn { padding: 10px 20px; font-size: 14px; background: var(--crimson); color: var(--white); }
+.nav .btn:hover { background: var(--crimson-2); }
 .menu-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
-.menu-toggle span { display: block; width: 22px; height: 2px; background: var(--deep); margin: 5px 0; }
+.menu-toggle span { display: block; width: 22px; height: 2px; background: var(--crimson); margin: 5px 0; }
 
-/* Hero */
-.hero { background: var(--hero); color: var(--cream); overflow: hidden; position: relative; }
+/* Hero: the bag's crimson with a warm sunset glow */
+.hero {
+  background: radial-gradient(ellipse 70% 60% at 75% 45%, rgba(214, 120, 40, .28), transparent 70%), var(--crimson);
+  color: var(--cream); overflow: hidden; position: relative; padding: 0;
+}
 .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; padding-top: 96px; padding-bottom: 104px; }
-.hero h1 { font-size: clamp(44px, 6.4vw, 84px); letter-spacing: -.02em; margin: 18px 0 22px; }
-.hero h1 em { font-style: italic; color: var(--peach); font-weight: 400; }
-.hero p.lead { font-size: 19px; max-width: 520px; color: rgba(251, 243, 240, .85); margin-bottom: 34px; }
-.hero .eyebrow { color: var(--blush); }
+.hero h1 { font-size: clamp(42px, 6vw, 80px); letter-spacing: -.02em; margin: 18px 0 22px; }
+.hero h1 em { font-style: italic; color: var(--gold); font-weight: 400; }
+.hero p.lead { font-size: 19px; max-width: 540px; color: rgba(248, 241, 228, .88); margin-bottom: 34px; }
+.hero .eyebrow { color: var(--gold); }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 .hero .btn-ghost { color: var(--cream); }
 .hero-badges { display: flex; gap: 28px; margin-top: 48px; flex-wrap: wrap; }
-.hero-badges div { font-size: 14px; color: rgba(251, 243, 240, .75); display: flex; align-items: center; gap: 8px; }
+.hero-badges div { font-size: 14px; color: rgba(248, 241, 228, .8); display: flex; align-items: center; gap: 8px; }
 .hero-badges svg { width: 18px; height: 18px; color: var(--gold); }
 .hero-art { position: relative; aspect-ratio: 1; max-width: 460px; justify-self: end; width: 100%; }
-.hero-art .ring { position: absolute; inset: 0; border-radius: 50%; border: 1px dashed rgba(243, 217, 212, .35); }
-.hero-art .ring.r2 { inset: 12%; border-style: solid; border-color: rgba(243, 217, 212, .15); }
-.hero-art .bag {
-  position: absolute; inset: 18% 22%; background: var(--coral); border-radius: 16px 16px 22px 22px;
-  box-shadow: 0 30px 60px rgba(0,0,0,.35); display: flex; flex-direction: column; align-items: center; justify-content: center;
-  color: var(--white); text-align: center; padding: 24px;
-}
-.hero-art .bag::before {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 26px; border-radius: 16px 16px 0 0;
-  background: repeating-linear-gradient(90deg, #b45b5b 0 6px, var(--coral) 6px 12px);
-}
-.bag .b-brand { font-family: "Fraunces", serif; font-weight: 700; font-size: clamp(20px, 2.4vw, 28px); line-height: 1; }
-.bag .b-line { width: 40px; height: 2px; background: var(--gold); margin: 14px 0; }
-.bag .b-prod { font-family: "Fraunces", serif; font-style: italic; font-size: clamp(16px, 1.8vw, 20px); }
-.bag .b-tag { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; margin-top: 10px; color: var(--muted); }
-.hero-art .chip {
-  position: absolute; background: var(--white); color: var(--deep); border-radius: 999px; padding: 10px 16px;
-  font-size: 13px; font-weight: 600; box-shadow: 0 10px 30px rgba(0,0,0,.25); white-space: nowrap;
-}
-.chip.c1 { top: 10%; left: 0; }
-.chip.c2 { bottom: 14%; right: -2%; }
-.chip.c3 { bottom: 4%; left: 8%; }
+.hero-art .ring { position: absolute; inset: 0; border-radius: 50%; border: 1px dashed rgba(201, 162, 39, .4); }
+.hero-art .ring.r2 { inset: 12%; border-style: solid; border-color: rgba(201, 162, 39, .18); }
 
-/* Marquee */
-.strip { background: var(--red); color: var(--white); overflow: hidden; white-space: nowrap; padding: 14px 0; }
-.strip-track { display: inline-flex; gap: 48px; animation: scroll 30s linear infinite; font-family: "Fraunces", serif; font-size: 20px; font-style: italic; }
+/* CSS replica of the front of the bag */
+.hero-art .bag {
+  position: absolute; inset: 12% 20%; border-radius: 14px 14px 20px 20px;
+  background: radial-gradient(ellipse 90% 55% at 50% 62%, #b8471f 0%, #8a2626 45%, #5e1a1c 100%);
+  box-shadow: 0 30px 60px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.08);
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+  color: var(--cream); text-align: center; padding: 16% 10% 10%;
+}
+.bag-tab {
+  position: absolute; top: 0; left: 7%; width: 17%; height: 34%; background: var(--gold-2);
+  border-radius: 0 0 4px 4px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+  padding: 0 3px 8px; gap: 3px;
+}
+.bag-tab img { width: 14px; height: 12px; }
+.bag-tab span { font-size: 6.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--crimson-3); line-height: 1.1; }
+.bag-leaf { width: 30px; height: 26px; margin-bottom: 4px; }
+.bag .b-brand { font-family: "Fraunces", serif; font-weight: 800; font-size: clamp(22px, 2.6vw, 32px); line-height: .95; letter-spacing: .03em; text-transform: uppercase; }
+.bag .b-sub { font-size: 8px; letter-spacing: .3em; text-transform: uppercase; margin-top: 6px; color: rgba(248, 241, 228, .85); }
+.bag .b-prod { font-family: "Fraunces", serif; font-weight: 800; font-size: clamp(20px, 2.3vw, 28px); text-transform: uppercase; margin-top: auto; letter-spacing: .02em; }
+.bag .b-tag { font-size: 8px; letter-spacing: .12em; text-transform: uppercase; margin-top: 4px; color: rgba(248, 241, 228, .9); }
+.bag-badge {
+  position: absolute; right: -9%; top: 38%; width: 30%; aspect-ratio: 1; border-radius: 50%;
+  background: #1f1310; border: 3px solid var(--gold); color: var(--gold);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: 700; text-transform: uppercase; line-height: 1.05; text-align: center;
+}
+.bag-badge strong { font-size: 15px; }
+.bag-badge span { font-size: 7px; letter-spacing: .04em; }
+.hero-art .chip {
+  position: absolute; background: var(--paper); color: var(--crimson); border-radius: 999px; padding: 10px 16px;
+  font-size: 13px; font-weight: 600; box-shadow: 0 10px 30px rgba(0,0,0,.3); white-space: nowrap;
+}
+.chip.c1 { top: 6%; left: 0; }
+.chip.c2 { bottom: 14%; right: -2%; }
+.chip.c3 { bottom: 3%; left: 8%; }
+
+/* Marquee: the bag's gold */
+.strip { background: var(--gold); color: var(--crimson-3); overflow: hidden; white-space: nowrap; padding: 14px 0; }
+.strip-track { display: inline-flex; gap: 48px; animation: scroll 30s linear infinite; font-family: "Fraunces", serif; font-size: 20px; font-style: italic; font-weight: 600; }
 .strip-track span::after { content: "✦"; margin-left: 48px; font-style: normal; opacity: .7; }
 @keyframes scroll { to { transform: translateX(-50%); } }
 
 /* Sections */
 section { padding: 110px 0; }
 .section-head { max-width: 640px; margin-bottom: 56px; }
-.section-head h2 { font-size: clamp(34px, 4.4vw, 54px); margin: 12px 0 16px; color: var(--deep); letter-spacing: -.015em; }
+.section-head h2 { font-size: clamp(34px, 4.4vw, 54px); margin: 12px 0 16px; color: var(--crimson); letter-spacing: -.015em; }
 .section-head p { font-size: 18px; color: var(--muted); }
 .center { text-align: center; margin-left: auto; margin-right: auto; }
 
-/* Pillars */
-.pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.pillar { background: var(--white); border-radius: var(--radius); padding: 32px 26px; border: 1px solid rgba(75, 27, 31,.08); }
-.pillar .icon { width: 52px; height: 52px; border-radius: 14px; background: var(--deep); color: var(--gold); display: grid; place-items: center; margin-bottom: 22px; }
-.pillar .icon svg { width: 26px; height: 26px; }
-.pillar h3 { font-size: 22px; color: var(--deep); margin-bottom: 10px; }
-.pillar p { color: var(--muted); font-size: 15px; }
+/* Pillars: the five icons from the bag */
+.pillars { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+.pillar { background: var(--paper); border-radius: var(--radius); padding: 28px 22px; border: 1px solid rgba(108, 31, 33, .1); }
+.pillar .icon { width: 56px; height: 56px; border-radius: 50%; background: var(--crimson); color: var(--gold); display: grid; place-items: center; margin-bottom: 20px; border: 2px solid var(--gold-2); }
+.pillar .icon svg { width: 30px; height: 30px; }
+.pillar h3 { font-size: 20px; color: var(--crimson); margin-bottom: 8px; }
+.pillar p { color: var(--muted); font-size: 14.5px; }
 
 /* Label compare */
-.compare { background: var(--rose); }
+.compare { background: var(--sand); }
 .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .labels { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.label-card { background: var(--white); border-radius: var(--radius); padding: 26px; font-size: 14px; }
+.label-card { background: var(--paper); border-radius: var(--radius); padding: 26px; font-size: 14px; }
 .label-card h4 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px; color: var(--muted); }
 .label-card.theirs p { color: var(--muted); font-size: 12.5px; line-height: 1.55; }
-.label-card.ours { background: var(--deep); color: var(--cream); display: flex; flex-direction: column; }
+.label-card.ours { background: var(--crimson); color: var(--cream); display: flex; flex-direction: column; }
 .label-card.ours h4 { color: var(--gold); }
-.label-card.ours .one { font-family: "Fraunces", serif; font-size: 30px; line-height: 1.1; margin-top: auto; }
-.label-card.ours small { display: block; margin-top: 10px; color: rgba(251, 243, 240,.7); font-size: 13px; }
-.compare h2 { font-size: clamp(32px, 4vw, 48px); color: var(--deep); margin: 12px 0 18px; }
-.compare p { color: #4f463f; font-size: 17px; margin-bottom: 14px; }
+.label-card.ours .one { font-family: "Fraunces", serif; font-size: 28px; line-height: 1.1; margin-top: auto; }
+.label-card.ours small { display: block; margin-top: 10px; color: rgba(248, 241, 228, .75); font-size: 13px; }
+.compare h2 { font-size: clamp(32px, 4vw, 48px); color: var(--crimson); margin: 12px 0 18px; }
+.compare p { color: #4f433d; font-size: 17px; margin-bottom: 14px; }
+
+/* Beef Liver spotlight (facts from the bag) */
+.spotlight { background: var(--crimson); color: var(--cream); }
+.spotlight .eyebrow { color: var(--gold); }
+.spotlight .section-head h2 { color: var(--cream); }
+.spotlight .section-head p { color: rgba(248, 241, 228, .8); }
+.spot-grid { display: grid; grid-template-columns: 1fr 1.15fr 1fr; gap: 20px; align-items: start; }
+.spot-card { border: 1.5px solid rgba(201, 162, 39, .55); border-radius: var(--radius); padding: 28px; background: rgba(0, 0, 0, .12); }
+.spot-card h3 { font-size: 22px; color: var(--gold); margin-bottom: 14px; }
+.spot-card h3 small { font-family: "Inter", sans-serif; font-size: 13px; font-weight: 500; color: rgba(248, 241, 228, .7); margin-left: 6px; }
+.spot-card h3.mt { margin-top: 26px; }
+.spot-card p { font-size: 15px; color: rgba(248, 241, 228, .88); }
+.spot-card p.small { font-size: 13.5px; color: rgba(248, 241, 228, .75); margin: 8px 0; }
+.checks { list-style: none; display: grid; gap: 9px; }
+.checks li { position: relative; padding-left: 26px; font-size: 15px; }
+.checks li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+.facts { width: 100%; border-collapse: collapse; font-size: 15px; }
+.facts th { text-align: left; font-weight: 400; padding: 9px 0; border-bottom: 1px dotted rgba(248, 241, 228, .3); color: rgba(248, 241, 228, .9); }
+.facts td { text-align: right; padding: 9px 0; border-bottom: 1px dotted rgba(248, 241, 228, .3); font-weight: 600; color: var(--cream); white-space: nowrap; padding-left: 12px; }
+.origin { margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(201, 162, 39, .4); font-size: 13.5px !important; color: rgba(248, 241, 228, .75) !important; }
 
 /* Products */
 .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.product { background: var(--white); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(75, 27, 31,.08); transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; }
-.product:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(75, 27, 31,.10); }
+.product { background: var(--paper); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(108, 31, 33, .1); transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; }
+.product:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(108, 31, 33, .12); }
 .product-art { aspect-ratio: 4/3; display: grid; place-items: center; position: relative; }
 .product-art .p-letter { font-family: "Fraunces", serif; font-size: 92px; font-weight: 600; color: rgba(255,255,255,.92); line-height: 1; }
-.product-art .p-pet { position: absolute; top: 16px; left: 16px; background: rgba(255,255,255,.9); color: var(--deep); font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 999px; }
+.product-art .p-pet { position: absolute; top: 16px; left: 16px; background: rgba(255,255,255,.9); color: var(--crimson); font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 999px; }
 .product-body { padding: 24px 24px 28px; display: flex; flex-direction: column; flex: 1; }
-.product h3 { font-size: 24px; color: var(--deep); }
-.product .ingredient { font-size: 13px; color: var(--red); font-weight: 600; margin: 6px 0 12px; letter-spacing: .02em; }
+.product h3 { font-size: 24px; color: var(--crimson); }
+.product .ingredient { font-size: 13px; color: var(--crimson-2); font-weight: 600; margin: 6px 0 12px; letter-spacing: .02em; }
 .product p { color: var(--muted); font-size: 15px; margin-bottom: 20px; }
-.product .btn { margin-top: auto; align-self: flex-start; padding: 10px 20px; font-size: 14px; color: var(--deep); }
+.product .btn { margin-top: auto; align-self: flex-start; padding: 10px 20px; font-size: 14px; color: var(--crimson); }
+.art-1 { background: radial-gradient(ellipse at 50% 70%, #a23a22, #6c1f21); }
+.art-2 { background: #b8902a; }
+.art-3 { background: #c4664f; }
+.art-4 { background: #6e4a3a; }
+.art-5 { background: #6f7f4a; }
+.art-6 { background: #4e1416; }
 
 /* Process */
-.process { background: var(--oxblood); color: var(--cream); }
+.process { background: var(--crimson-3); color: var(--cream); }
 .process .section-head h2 { color: var(--cream); }
-.process .section-head p { color: rgba(251, 243, 240,.75); }
-.process .eyebrow { color: var(--blush); }
+.process .section-head p { color: rgba(248, 241, 228, .75); }
+.process .eyebrow { color: var(--gold); }
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: step; }
 .step { padding: 0 28px 0 0; position: relative; }
 .step::before {
   counter-increment: step; content: "0" counter(step);
-  font-family: "Fraunces", serif; font-size: 56px; color: var(--gold); opacity: .9; display: block; margin-bottom: 14px; line-height: 1;
+  font-family: "Fraunces", serif; font-size: 56px; color: var(--gold); display: block; margin-bottom: 14px; line-height: 1;
 }
-.step::after { content: ""; position: absolute; top: 28px; left: 90px; right: 20px; height: 1px; background: rgba(243, 217, 212,.25); }
+.step::after { content: ""; position: absolute; top: 28px; left: 90px; right: 20px; height: 1px; background: rgba(201, 162, 39, .3); }
 .step:last-child::after { display: none; }
 .step h3 { font-size: 22px; margin-bottom: 10px; }
-.step p { color: rgba(251, 243, 240,.75); font-size: 15px; }
+.step p { color: rgba(248, 241, 228, .75); font-size: 15px; }
 
 /* Pets */
 .pets-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .pet-card { border-radius: var(--radius); padding: 48px; min-height: 300px; display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; }
-.pet-card.dog { background: #f0c4b8; }
-.pet-card.cat { background: var(--sage-light); }
-.pet-card svg.pet-icon { position: absolute; top: 32px; right: 32px; width: 120px; height: 120px; opacity: .22; color: var(--deep); }
-.pet-card h3 { font-size: 36px; color: var(--deep); margin-bottom: 10px; }
-.pet-card p { color: #3d342f; max-width: 400px; }
+.pet-card.dog { background: #f0d6c4; }
+.pet-card.cat { background: #e9dcb8; }
+.pet-card svg.pet-icon { position: absolute; top: 32px; right: 32px; width: 120px; height: 120px; opacity: .2; color: var(--crimson); }
+.pet-card h3 { font-size: 36px; color: var(--crimson); margin-bottom: 10px; }
+.pet-card p { color: #3f332d; max-width: 400px; }
 
 /* FAQ */
-.faq { background: var(--white); }
+.faq { background: var(--paper); }
 .faq-list { max-width: 780px; margin: 0 auto; }
-details { border-bottom: 1px solid rgba(75, 27, 31,.14); padding: 24px 0; }
-summary { cursor: pointer; list-style: none; font-family: "Fraunces", serif; font-size: 21px; color: var(--deep); display: flex; justify-content: space-between; gap: 24px; }
+details { border-bottom: 1px solid rgba(108, 31, 33, .15); padding: 24px 0; }
+summary { cursor: pointer; list-style: none; font-family: "Fraunces", serif; font-size: 21px; color: var(--crimson); display: flex; justify-content: space-between; gap: 24px; }
 summary::-webkit-details-marker { display: none; }
-summary::after { content: "+"; font-family: "Inter", sans-serif; font-size: 24px; color: var(--red); transition: transform .2s; }
+summary::after { content: "+"; font-family: "Inter", sans-serif; font-size: 24px; color: var(--gold-2); transition: transform .2s; }
 details[open] summary::after { transform: rotate(45deg); }
 details p { margin-top: 14px; color: var(--muted); }
 
 /* Signup */
-.signup { background: var(--red); color: var(--white); text-align: center; }
+.signup { background: var(--crimson-2); color: var(--white); text-align: center; }
 .signup h2 { font-size: clamp(34px, 4.4vw, 54px); margin-bottom: 14px; }
-.signup p { font-size: 18px; opacity: .9; max-width: 520px; margin: 0 auto 32px; }
+.signup p { font-size: 18px; opacity: .92; max-width: 520px; margin: 0 auto 32px; }
 .signup form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; }
-.signup input {
-  flex: 1; padding: 15px 22px; border-radius: 999px; border: 0; font: inherit; font-size: 15px; color: var(--ink); min-width: 0;
-}
+.signup input { flex: 1; padding: 15px 22px; border-radius: 999px; border: 0; font: inherit; font-size: 15px; color: var(--ink); min-width: 0; }
 .signup input:focus { outline: 3px solid var(--gold); }
-.signup .btn { background: var(--deep); color: var(--white); }
+.signup .btn { background: var(--gold); color: var(--crimson-3); }
 .signup .note { font-size: 14px; margin-top: 16px; min-height: 1.4em; }
 
 /* Footer */
-footer { background: var(--ink); color: rgba(251, 243, 240,.7); padding: 64px 0 36px; font-size: 14px; }
+footer { background: var(--crimson-3); color: rgba(248, 241, 228, .72); padding: 64px 0 36px; font-size: 14px; }
 .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
-footer .logo span { color: var(--cream); }
+footer .wm-name { color: var(--cream); }
+footer .wm-sub { color: rgba(248, 241, 228, .6); }
+.foot-logo { margin-bottom: 16px; }
+.foot-blurb { max-width: 340px; }
+.foot-trust { margin-top: 14px; font-family: "Fraunces", serif; font-style: italic; font-size: 17px; color: var(--gold); }
 footer h4 { color: var(--cream); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 16px; font-weight: 600; }
 footer ul { list-style: none; display: grid; gap: 10px; }
 footer a { text-decoration: none; }
 footer a:hover { color: var(--cream); }
-.foot-bottom { border-top: 1px solid rgba(251, 243, 240,.12); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; }
+.foot-bottom { border-top: 1px solid rgba(248, 241, 228, .12); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; }
 
 /* Responsive */
+@media (max-width: 1060px) {
+  .pillars { grid-template-columns: repeat(3, 1fr); }
+  .spot-grid { grid-template-columns: 1fr 1fr; }
+  .spot-card.notes { grid-column: 1 / -1; }
+}
 @media (max-width: 960px) {
   .hero-grid, .compare-grid { grid-template-columns: 1fr; }
   .hero-art { justify-self: center; max-width: 380px; }
   .pillars, .steps { grid-template-columns: 1fr 1fr; gap: 24px; }
   .step::after { display: none; }
   .products { grid-template-columns: 1fr 1fr; }
+  .nav ul { gap: 20px; }
 }
 @media (max-width: 720px) {
   .nav ul, .nav .btn { display: none; }
   .menu-toggle { display: block; }
   .nav.open ul {
     display: flex; flex-direction: column; gap: 0; position: absolute; top: 72px; left: 0; right: 0;
-    background: var(--cream); border-bottom: 1px solid rgba(75, 27, 31,.1); padding: 8px 24px 16px;
+    background: var(--cream); border-bottom: 1px solid rgba(108, 31, 33, .1); padding: 8px 24px 16px;
   }
   .nav.open ul a { display: block; padding: 12px 0; }
   .wrap { padding: 0 16px; }
@@ -226,27 +280,15 @@ footer a:hover { color: var(--cream); }
   .hero-grid { padding-top: 64px; padding-bottom: 72px; }
   .hero-badges { gap: 12px 22px; margin-top: 36px; }
   .hero-actions .btn { flex: 1 1 0; min-width: 150px; text-align: center; padding-left: 16px; padding-right: 16px; }
-  .pillars, .steps, .products, .pets-grid, .labels, .foot-grid { grid-template-columns: 1fr; }
   .pet-card { padding: 28px 24px 32px; min-height: 0; }
   .pet-card svg.pet-icon { position: static; width: 52px; height: 52px; opacity: .35; margin-bottom: 18px; }
+  .pillars, .steps, .products, .pets-grid, .labels, .foot-grid, .spot-grid { grid-template-columns: 1fr; }
+  .spot-card { padding: 22px; }
   .signup form { flex-direction: column; }
   .chip.c2 { right: 0; }
+  .bag-badge { right: -4%; }
 }
 @media (prefers-reduced-motion: reduce) {
   .strip-track { animation: none; }
   html { scroll-behavior: auto; }
 }
-.hero { padding: 0; }
-.foot-logo { margin-bottom: 16px; }
-.foot-blurb { max-width: 320px; }
-.art-1 { background: #9a3b3b; }
-.art-2 { background: #d4a03c; }
-.art-3 { background: #d9776a; }
-.art-4 { background: #6e4a3a; }
-.art-5 { background: #7d8f6a; }
-.art-6 { background: #5c3d4f; }
-
-
-/* Red text fails AA on the oat compare panel (4.2:1), so its eyebrow uses espresso. */
-.compare .eyebrow { color: var(--deep); }
-.bag .b-tag { color: rgba(255, 253, 249, .85); }

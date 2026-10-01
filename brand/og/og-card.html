@@ -6,25 +6,29 @@
 @font-face { font-family: Inter; src: url(../../fonts/inter-normal.woff2) format("woff2"); font-weight: 100 900; }
 * { margin: 0; box-sizing: border-box; }
 html, body { width: 1200px; height: 630px; overflow: hidden; }
-body { background: #3d1f1c; color: #f8f3ea; font-family: Inter, sans-serif; position: relative; display: flex; align-items: center; padding: 0 84px; gap: 64px; }
-.mark { width: 340px; height: 340px; flex: none; background: #4b2724; border-radius: 48px; display: grid; place-items: center; }
-.mark img { width: 270px; height: 270px; }
+body { background: radial-gradient(ellipse 60% 70% at 28% 50%, rgba(214,120,40,.32), transparent 70%), #6c1f21;
+  color: #f8f1e4; font-family: Inter, sans-serif; position: relative; display: flex; align-items: center; padding: 0 84px; gap: 64px; }
+.mark { width: 320px; height: 320px; flex: none; background: #8a2626; border-radius: 48px; display: grid; place-items: center; border: 4px solid #c9a227; }
+.mark img { width: 250px; height: 250px; }
 .copy { flex: 1; }
-.eyebrow { font-size: 22px; letter-spacing: .16em; text-transform: uppercase; color: #e2b04a; font-weight: 600; margin-bottom: 22px; }
-h1 { font-family: Fraunces, serif; font-weight: 700; font-size: 92px; line-height: .98; letter-spacing: -.02em; }
-h2 { font-family: Fraunces, serif; font-style: italic; font-weight: 400; font-size: 48px; color: #f2b8a8; margin-top: 18px; }
-p { font-size: 26px; color: rgba(248,243,234,.78); margin-top: 26px; line-height: 1.4; }
-.bar { position: absolute; left: 0; right: 0; bottom: 0; height: 18px; background: linear-gradient(90deg, #b04e4e 0 55%, #e2b04a 55% 80%, #7d8f6a 80%); }
-.url { position: absolute; right: 84px; top: 46px; font-size: 22px; color: rgba(248,243,234,.6); letter-spacing: .02em; }
+.leaf { width: 74px; height: 65px; margin-bottom: 10px; }
+h1 { font-family: Fraunces, serif; font-weight: 800; font-size: 84px; line-height: .95; letter-spacing: .03em; text-transform: uppercase; }
+.sub { font-size: 22px; letter-spacing: .34em; text-transform: uppercase; margin-top: 14px; color: rgba(248,241,228,.85); display: flex; align-items: center; gap: 16px; }
+.sub::before, .sub::after { content: ""; height: 2px; width: 40px; background: #c9a227; }
+h2 { font-family: Fraunces, serif; font-style: italic; font-weight: 500; font-size: 42px; color: #c9a227; margin-top: 26px; }
+p { font-size: 24px; color: rgba(248,241,228,.85); margin-top: 14px; }
+.bar { position: absolute; left: 0; right: 0; bottom: 0; height: 16px; background: #c9a227; }
+.url { position: absolute; right: 84px; top: 40px; font-size: 22px; color: rgba(248,241,228,.65); }
 </style></head>
 <body>
   <div class="url">primeoriginsco.com</div>
   <div class="mark"><img src="mark-og.svg" alt=""></div>
   <div class="copy">
-    <div class="eyebrow">Freeze-dried pet treats</div>
-    <h1>Prime Origins</h1>
-    <h2>One ingredient. Nothing else.</h2>
-    <p>Single-ingredient, organic treats<br>for dogs &amp; cats.</p>
+    <img class="leaf" src="../../leaf.svg" alt="">
+    <h1>Prime<br>Origins</h1>
+    <div class="sub">Pet Nutrition</div>
+    <h2>Real ingredients. Naturally better.</h2>
+    <p>100% natural, freeze-dried treats for dogs &amp; cats.</p>
   </div>
   <div class="bar"></div>
 </body></html>

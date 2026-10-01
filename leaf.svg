@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 56" role="img" aria-label="">
+  <!-- Two-leaf sprout from the Prime Origins packaging -->
+  <path d="M31 54 C31 44 31 36 33 27" fill="none" stroke="#2f6f2c" stroke-width="3" stroke-linecap="round"/>
+  <path d="M33 28 C30 14 38 4 58 2 C60 20 50 31 33 28 Z" fill="#3f8f3a"/>
+  <path d="M35 26 C41 18 47 12 54 7" fill="none" stroke="#2f6f2c" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M30 34 C30 22 22 15 6 15 C5 29 14 37 30 34 Z" fill="#4fa046"/>
+  <path d="M28 32 C22 27 16 23 10 19" fill="none" stroke="#2f6f2c" stroke-width="1.6" stroke-linecap="round"/>
+</svg>
