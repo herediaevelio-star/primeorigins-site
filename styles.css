@@ -45,8 +45,9 @@ img, svg { display: block; max-width: 100%; }
 
 /* Wordmark: the bag's "PRIME ORIGINS / PET NUTRITION" lockup */
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.logo img { width: 34px; height: 30px; flex: none; }
-.wordmark { display: flex; flex-direction: column; line-height: 1; }
+.logo .logo-mark { width: 46px; height: 46px; flex: none; }
+.wordmark { display: flex; flex-direction: column; align-items: center; line-height: 1; }
+.wm-leaf { width: 20px; height: 17px; margin-bottom: 2px; }
 .wm-name { font-family: "Fraunces", serif; font-weight: 800; font-size: 21px; letter-spacing: .04em; text-transform: uppercase; color: var(--crimson); }
 .wm-sub { font-size: 9.5px; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
 
