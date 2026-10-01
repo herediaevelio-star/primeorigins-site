@@ -9,240 +9,11 @@
   <meta property="og:description" content="Single-ingredient, freeze-dried, organic treats for every pet.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://primeoriginsco.com">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --forest: #1f3a2b;
-      --forest-2: #2c4f3b;
-      --cream: #f6f0e4;
-      --sand: #e9dcc3;
-      --clay: #b8643c;
-      --ink: #1d1d1b;
-      --muted: #5d5a52;
-      --white: #fffdf8;
-      --radius: 18px;
-      --max: 1160px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: "Inter", system-ui, sans-serif;
-      background: var(--cream);
-      color: var(--ink);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    h1, h2, h3 { font-family: "Fraunces", Georgia, serif; line-height: 1.1; font-weight: 600; }
-    a { color: inherit; }
-    img, svg { display: block; max-width: 100%; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-    .eyebrow {
-      font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--clay);
-    }
-    .btn {
-      display: inline-block; padding: 14px 26px; border-radius: 999px;
-      font-weight: 600; font-size: 15px; text-decoration: none; transition: transform .15s, background .15s;
-      border: 2px solid transparent; cursor: pointer;
-    }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: var(--clay); color: var(--white); }
-    .btn-primary:hover { background: #a3542f; }
-    .btn-ghost { border-color: currentColor; }
-
-    /* Nav */
-    header {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(246, 240, 228, .92); backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(31, 58, 43, .08);
-    }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .logo svg { width: 36px; height: 36px; }
-    .logo span { font-family: "Fraunces", serif; font-size: 22px; font-weight: 700; color: var(--forest); letter-spacing: -.01em; }
-    .nav ul { display: flex; gap: 32px; list-style: none; }
-    .nav ul a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--forest); }
-    .nav ul a:hover { color: var(--clay); }
-    .nav .btn { padding: 10px 20px; font-size: 14px; }
-    .menu-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
-    .menu-toggle span { display: block; width: 22px; height: 2px; background: var(--forest); margin: 5px 0; }
-
-    /* Hero */
-    .hero { background: var(--forest); color: var(--cream); overflow: hidden; position: relative; }
-    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; padding-top: 96px; padding-bottom: 104px; }
-    .hero h1 { font-size: clamp(44px, 6.4vw, 84px); letter-spacing: -.02em; margin: 18px 0 22px; }
-    .hero h1 em { font-style: italic; color: var(--sand); font-weight: 400; }
-    .hero p.lead { font-size: 19px; max-width: 520px; color: rgba(246, 240, 228, .85); margin-bottom: 34px; }
-    .hero .eyebrow { color: var(--sand); }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-    .hero .btn-ghost { color: var(--cream); }
-    .hero-badges { display: flex; gap: 28px; margin-top: 48px; flex-wrap: wrap; }
-    .hero-badges div { font-size: 14px; color: rgba(246, 240, 228, .75); display: flex; align-items: center; gap: 8px; }
-    .hero-badges svg { width: 18px; height: 18px; color: var(--sand); }
-    .hero-art { position: relative; aspect-ratio: 1; max-width: 460px; justify-self: end; width: 100%; }
-    .hero-art .ring { position: absolute; inset: 0; border-radius: 50%; border: 1px dashed rgba(233, 220, 195, .35); }
-    .hero-art .ring.r2 { inset: 12%; border-style: solid; border-color: rgba(233, 220, 195, .15); }
-    .hero-art .bag {
-      position: absolute; inset: 18% 22%; background: var(--sand); border-radius: 16px 16px 22px 22px;
-      box-shadow: 0 30px 60px rgba(0,0,0,.35); display: flex; flex-direction: column; align-items: center; justify-content: center;
-      color: var(--forest); text-align: center; padding: 24px;
-    }
-    .hero-art .bag::before {
-      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 26px; border-radius: 16px 16px 0 0;
-      background: repeating-linear-gradient(90deg, #d8c8a8 0 6px, var(--sand) 6px 12px);
-    }
-    .bag .b-brand { font-family: "Fraunces", serif; font-weight: 700; font-size: clamp(20px, 2.4vw, 28px); line-height: 1; }
-    .bag .b-line { width: 40px; height: 2px; background: var(--clay); margin: 14px 0; }
-    .bag .b-prod { font-family: "Fraunces", serif; font-style: italic; font-size: clamp(16px, 1.8vw, 20px); }
-    .bag .b-tag { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; margin-top: 10px; color: var(--muted); }
-    .hero-art .chip {
-      position: absolute; background: var(--white); color: var(--forest); border-radius: 999px; padding: 10px 16px;
-      font-size: 13px; font-weight: 600; box-shadow: 0 10px 30px rgba(0,0,0,.25); white-space: nowrap;
-    }
-    .chip.c1 { top: 10%; left: 0; }
-    .chip.c2 { bottom: 14%; right: -2%; }
-    .chip.c3 { bottom: 4%; left: 8%; }
-
-    /* Marquee */
-    .strip { background: var(--clay); color: var(--white); overflow: hidden; white-space: nowrap; padding: 14px 0; }
-    .strip-track { display: inline-flex; gap: 48px; animation: scroll 30s linear infinite; font-family: "Fraunces", serif; font-size: 20px; font-style: italic; }
-    .strip-track span::after { content: "✦"; margin-left: 48px; font-style: normal; opacity: .7; }
-    @keyframes scroll { to { transform: translateX(-50%); } }
-
-    /* Sections */
-    section { padding: 110px 0; }
-    .section-head { max-width: 640px; margin-bottom: 56px; }
-    .section-head h2 { font-size: clamp(34px, 4.4vw, 54px); margin: 12px 0 16px; color: var(--forest); letter-spacing: -.015em; }
-    .section-head p { font-size: 18px; color: var(--muted); }
-    .center { text-align: center; margin-left: auto; margin-right: auto; }
-
-    /* Pillars */
-    .pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .pillar { background: var(--white); border-radius: var(--radius); padding: 32px 26px; border: 1px solid rgba(31,58,43,.08); }
-    .pillar .icon { width: 52px; height: 52px; border-radius: 14px; background: var(--forest); color: var(--sand); display: grid; place-items: center; margin-bottom: 22px; }
-    .pillar .icon svg { width: 26px; height: 26px; }
-    .pillar h3 { font-size: 22px; color: var(--forest); margin-bottom: 10px; }
-    .pillar p { color: var(--muted); font-size: 15px; }
-
-    /* Label compare */
-    .compare { background: var(--sand); }
-    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    .labels { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .label-card { background: var(--white); border-radius: var(--radius); padding: 26px; font-size: 14px; }
-    .label-card h4 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px; color: var(--muted); }
-    .label-card.theirs p { color: var(--muted); font-size: 12.5px; line-height: 1.55; }
-    .label-card.ours { background: var(--forest); color: var(--cream); display: flex; flex-direction: column; }
-    .label-card.ours h4 { color: var(--sand); }
-    .label-card.ours .one { font-family: "Fraunces", serif; font-size: 30px; line-height: 1.1; margin-top: auto; }
-    .label-card.ours small { display: block; margin-top: 10px; color: rgba(246,240,228,.7); font-size: 13px; }
-    .compare h2 { font-size: clamp(32px, 4vw, 48px); color: var(--forest); margin: 12px 0 18px; }
-    .compare p { color: #4a463e; font-size: 17px; margin-bottom: 14px; }
-
-    /* Products */
-    .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .product { background: var(--white); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(31,58,43,.08); transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; }
-    .product:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(31,58,43,.10); }
-    .product-art { aspect-ratio: 4/3; display: grid; place-items: center; position: relative; }
-    .product-art .p-letter { font-family: "Fraunces", serif; font-size: 92px; font-weight: 600; color: rgba(255,255,255,.92); line-height: 1; }
-    .product-art .p-pet { position: absolute; top: 16px; left: 16px; background: rgba(255,255,255,.9); color: var(--forest); font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 999px; }
-    .product-body { padding: 24px 24px 28px; display: flex; flex-direction: column; flex: 1; }
-    .product h3 { font-size: 24px; color: var(--forest); }
-    .product .ingredient { font-size: 13px; color: var(--clay); font-weight: 600; margin: 6px 0 12px; letter-spacing: .02em; }
-    .product p { color: var(--muted); font-size: 15px; margin-bottom: 20px; }
-    .product .btn { margin-top: auto; align-self: flex-start; padding: 10px 20px; font-size: 14px; color: var(--forest); }
-
-    /* Process */
-    .process { background: var(--forest); color: var(--cream); }
-    .process .section-head h2 { color: var(--cream); }
-    .process .section-head p { color: rgba(246,240,228,.75); }
-    .process .eyebrow { color: var(--sand); }
-    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: step; }
-    .step { padding: 0 28px 0 0; position: relative; }
-    .step::before {
-      counter-increment: step; content: "0" counter(step);
-      font-family: "Fraunces", serif; font-size: 56px; color: var(--sand); opacity: .9; display: block; margin-bottom: 14px; line-height: 1;
-    }
-    .step::after { content: ""; position: absolute; top: 28px; left: 90px; right: 20px; height: 1px; background: rgba(233,220,195,.25); }
-    .step:last-child::after { display: none; }
-    .step h3 { font-size: 22px; margin-bottom: 10px; }
-    .step p { color: rgba(246,240,228,.75); font-size: 15px; }
-
-    /* Pets */
-    .pets-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .pet-card { border-radius: var(--radius); padding: 48px; min-height: 300px; display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; }
-    .pet-card.dog { background: #d9c3a0; }
-    .pet-card.cat { background: #c9d3c2; }
-    .pet-card svg.pet-icon { position: absolute; top: 32px; right: 32px; width: 120px; height: 120px; opacity: .22; color: var(--forest); }
-    .pet-card h3 { font-size: 36px; color: var(--forest); margin-bottom: 10px; }
-    .pet-card p { color: #3e3b33; max-width: 400px; }
-
-    /* FAQ */
-    .faq { background: var(--white); }
-    .faq-list { max-width: 780px; margin: 0 auto; }
-    details { border-bottom: 1px solid rgba(31,58,43,.14); padding: 24px 0; }
-    summary { cursor: pointer; list-style: none; font-family: "Fraunces", serif; font-size: 21px; color: var(--forest); display: flex; justify-content: space-between; gap: 24px; }
-    summary::-webkit-details-marker { display: none; }
-    summary::after { content: "+"; font-family: "Inter", sans-serif; font-size: 24px; color: var(--clay); transition: transform .2s; }
-    details[open] summary::after { transform: rotate(45deg); }
-    details p { margin-top: 14px; color: var(--muted); }
-
-    /* Signup */
-    .signup { background: var(--clay); color: var(--white); text-align: center; }
-    .signup h2 { font-size: clamp(34px, 4.4vw, 54px); margin-bottom: 14px; }
-    .signup p { font-size: 18px; opacity: .9; max-width: 520px; margin: 0 auto 32px; }
-    .signup form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; }
-    .signup input {
-      flex: 1; padding: 15px 22px; border-radius: 999px; border: 0; font: inherit; font-size: 15px; color: var(--ink); min-width: 0;
-    }
-    .signup input:focus { outline: 3px solid var(--sand); }
-    .signup .btn { background: var(--forest); color: var(--white); }
-    .signup .note { font-size: 14px; margin-top: 16px; min-height: 1.4em; }
-
-    /* Footer */
-    footer { background: var(--ink); color: rgba(246,240,228,.7); padding: 64px 0 36px; font-size: 14px; }
-    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
-    footer .logo span { color: var(--cream); }
-    footer h4 { color: var(--cream); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 16px; font-weight: 600; }
-    footer ul { list-style: none; display: grid; gap: 10px; }
-    footer a { text-decoration: none; }
-    footer a:hover { color: var(--cream); }
-    .foot-bottom { border-top: 1px solid rgba(246,240,228,.12); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; }
-
-    /* Responsive */
-    @media (max-width: 960px) {
-      .hero-grid, .compare-grid { grid-template-columns: 1fr; }
-      .hero-art { justify-self: center; max-width: 380px; }
-      .pillars, .steps { grid-template-columns: 1fr 1fr; gap: 24px; }
-      .step::after { display: none; }
-      .products { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 720px) {
-      .nav ul, .nav .btn { display: none; }
-      .menu-toggle { display: block; }
-      .nav.open ul {
-        display: flex; flex-direction: column; gap: 0; position: absolute; top: 72px; left: 0; right: 0;
-        background: var(--cream); border-bottom: 1px solid rgba(31,58,43,.1); padding: 8px 24px 16px;
-      }
-      .nav.open ul a { display: block; padding: 12px 0; }
-      .wrap { padding: 0 16px; }
-      section { padding: 76px 0; }
-      .hero-grid { padding-top: 64px; padding-bottom: 72px; }
-      .hero-badges { gap: 12px 22px; margin-top: 36px; }
-      .hero-actions .btn { flex: 1 1 0; min-width: 150px; text-align: center; padding-left: 16px; padding-right: 16px; }
-      .pillars, .steps, .products, .pets-grid, .labels, .foot-grid { grid-template-columns: 1fr; }
-      .pet-card { padding: 28px 24px 32px; min-height: 0; }
-      .pet-card svg.pet-icon { position: static; width: 52px; height: 52px; opacity: .35; margin-bottom: 18px; }
-      .signup form { flex-direction: column; }
-      .chip.c2 { right: 0; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .strip-track { animation: none; }
-      html { scroll-behavior: auto; }
-    }
-  </style>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/fonts.css">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
@@ -259,13 +30,13 @@
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <a href="#signup" class="btn btn-primary">Get Early Access</a>
-    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" id="menu-toggle"><span></span><span></span><span></span></button>
   </nav>
 </header>
 
 <main>
   <!-- Hero -->
-  <section class="hero" style="padding:0">
+  <section class="hero">
     <div class="wrap hero-grid">
       <div>
         <div class="eyebrow">Single-Ingredient Pet Treats</div>
@@ -370,7 +141,7 @@
       </div>
       <div class="products">
         <article class="product">
-          <div class="product-art" style="background:#8a3b2a"><span class="p-pet">Dogs &amp; Cats</span><span class="p-letter">Bl</span></div>
+          <div class="product-art art-1"><span class="p-pet">Dogs &amp; Cats</span><span class="p-letter">Bl</span></div>
           <div class="product-body">
             <h3>Beef Liver</h3>
             <div class="ingredient">Ingredients: Organic beef liver</div>
@@ -379,7 +150,7 @@
           </div>
         </article>
         <article class="product">
-          <div class="product-art" style="background:#c79a5b"><span class="p-pet">Dogs &amp; Cats</span><span class="p-letter">Cb</span></div>
+          <div class="product-art art-2"><span class="p-pet">Dogs &amp; Cats</span><span class="p-letter">Cb</span></div>
           <div class="product-body">
             <h3>Chicken Breast</h3>
             <div class="ingredient">Ingredients: Organic chicken breast</div>
@@ -388,7 +159,7 @@
           </div>
         </article>
         <article class="product">
-          <div class="product-art" style="background:#d27a5a"><span class="p-pet">Dogs &amp; Cats</span><span class="p-letter">Sa</span></div>
+          <div class="product-art art-3"><span class="p-pet">Dogs &amp; Cats</span><span class="p-letter">Sa</span></div>
           <div class="product-body">
             <h3>Salmon</h3>
             <div class="ingredient">Ingredients: Wild-caught salmon</div>
@@ -397,7 +168,7 @@
           </div>
         </article>
         <article class="product">
-          <div class="product-art" style="background:#6e5a44"><span class="p-pet">Dogs &amp; Cats</span><span class="p-letter">Th</span></div>
+          <div class="product-art art-4"><span class="p-pet">Dogs &amp; Cats</span><span class="p-letter">Th</span></div>
           <div class="product-body">
             <h3>Turkey Heart</h3>
             <div class="ingredient">Ingredients: Organic turkey heart</div>
@@ -406,7 +177,7 @@
           </div>
         </article>
         <article class="product">
-          <div class="product-art" style="background:#4f6b4a"><span class="p-pet">Dogs</span><span class="p-letter">Lb</span></div>
+          <div class="product-art art-5"><span class="p-pet">Dogs</span><span class="p-letter">Lb</span></div>
           <div class="product-body">
             <h3>Lamb Lung</h3>
             <div class="ingredient">Ingredients: Organic lamb lung</div>
@@ -415,7 +186,7 @@
           </div>
         </article>
         <article class="product">
-          <div class="product-art" style="background:#2f4d5e"><span class="p-pet">Dogs &amp; Cats</span><span class="p-letter">Cl</span></div>
+          <div class="product-art art-6"><span class="p-pet">Dogs &amp; Cats</span><span class="p-letter">Cl</span></div>
           <div class="product-body">
             <h3>Chicken Liver</h3>
             <div class="ingredient">Ingredients: Organic chicken liver</div>
@@ -515,7 +286,7 @@
     <div class="wrap">
       <h2>Be first in line.</h2>
       <p>Join the Prime Origins list for launch news, new proteins and an exclusive first-order discount.</p>
-      <form onsubmit="return joinList(event)">
+      <form id="signup-form">
         <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address">
         <button class="btn" type="submit">Join the List</button>
       </form>
@@ -528,11 +299,11 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a href="#" class="logo" style="margin-bottom:16px">
+        <a href="#" class="logo foot-logo">
           <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#e9dcc3"/><path d="M32 14c-9 6-13 14-13 22a13 13 0 0 0 26 0c0-8-4-16-13-22z" fill="#1f3a2b"/><path d="M32 22v26" stroke="#e9dcc3" stroke-width="3" stroke-linecap="round"/></svg>
           <span>Prime Origins</span>
         </a>
-        <p style="max-width:320px">Single-ingredient, freeze-dried, organic treats for every pet. One ingredient. Nothing else.</p>
+        <p class="foot-blurb">Single-ingredient, freeze-dried, organic treats for every pet. One ingredient. Nothing else.</p>
       </div>
       <div>
         <h4>Explore</h4>
@@ -558,25 +329,6 @@
   </div>
 </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  function toggleMenu(btn) {
-    const nav = document.getElementById('nav');
-    const open = nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
-  }
-  document.querySelectorAll('#nav ul a').forEach(a =>
-    a.addEventListener('click', () => document.getElementById('nav').classList.remove('open'))
-  );
-
-  // Placeholder until an email service (Mailchimp, Klaviyo, Formspree) is connected.
-  function joinList(e) {
-    e.preventDefault();
-    document.getElementById('signup-note').textContent = "Thanks! You're on the list.";
-    e.target.reset();
-    return false;
-  }
-</script>
+<script src="/app.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; require-trusted-types-for 'script'
+
+# Same policy as the other client sites: fonts are self-hosted, no 'unsafe-inline',
+# and the only external origin is Cloudflare's cookieless Web Analytics beacon.
+# Keep Cloudflare's email_obfuscation, rocket_loader, mirage and polish OFF on this
+# zone; they inject inline scripts that this CSP blocks.
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
