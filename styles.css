@@ -1,14 +1,19 @@
 :root {
-  /* Palette sampled from the Prime Origins packaging (coral-red bag, oxblood band). */
-  --deep: #4b1b1f;
-  --deep-2: #6a2a2f;
-  --cream: #fbf3f0;
-  --blush: #f3d9d4;
-  --red: #b04e4e;   /* text + buttons: 5.2:1 with white */
-  --coral: #c46868; /* the bag color: decorative surfaces only (3.8:1 with white) */
-  --ink: #2a1214;
-  --muted: #6b5552;
-  --white: #fffcfb;
+  /* Brand red comes from the packaging (coral bag #c46868). It is the accent, not the whole
+     page: espresso darks, oat neutrals, and sage + gold as secondary colors balance it. */
+  --deep: #2e2420;    /* espresso: dark sections, headings */
+  --deep-2: #4a3a33;
+  --cream: #f8f3ea;   /* page background */
+  --blush: #efe5d6;   /* oat: soft panels and light text on dark */
+  --red: #b04e4e;     /* brand red for text + buttons: 5.2:1 with white */
+  --coral: #c46868;   /* packaging coral, decorative only */
+  --peach: #f2b8a8;
+  --sage: #7d8f6a;
+  --sage-light: #dfe6d6;
+  --gold: #e2b04a;
+  --ink: #1f1916;
+  --muted: #6b625a;
+  --white: #fffdf9;
   --radius: 18px;
   --max: 1160px;
 }
@@ -60,28 +65,28 @@ header {
 .hero { background: var(--deep); color: var(--cream); overflow: hidden; position: relative; }
 .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; padding-top: 96px; padding-bottom: 104px; }
 .hero h1 { font-size: clamp(44px, 6.4vw, 84px); letter-spacing: -.02em; margin: 18px 0 22px; }
-.hero h1 em { font-style: italic; color: var(--blush); font-weight: 400; }
+.hero h1 em { font-style: italic; color: var(--peach); font-weight: 400; }
 .hero p.lead { font-size: 19px; max-width: 520px; color: rgba(251, 243, 240, .85); margin-bottom: 34px; }
 .hero .eyebrow { color: var(--blush); }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 .hero .btn-ghost { color: var(--cream); }
 .hero-badges { display: flex; gap: 28px; margin-top: 48px; flex-wrap: wrap; }
 .hero-badges div { font-size: 14px; color: rgba(251, 243, 240, .75); display: flex; align-items: center; gap: 8px; }
-.hero-badges svg { width: 18px; height: 18px; color: var(--blush); }
+.hero-badges svg { width: 18px; height: 18px; color: var(--gold); }
 .hero-art { position: relative; aspect-ratio: 1; max-width: 460px; justify-self: end; width: 100%; }
 .hero-art .ring { position: absolute; inset: 0; border-radius: 50%; border: 1px dashed rgba(243, 217, 212, .35); }
 .hero-art .ring.r2 { inset: 12%; border-style: solid; border-color: rgba(243, 217, 212, .15); }
 .hero-art .bag {
-  position: absolute; inset: 18% 22%; background: var(--blush); border-radius: 16px 16px 22px 22px;
+  position: absolute; inset: 18% 22%; background: var(--coral); border-radius: 16px 16px 22px 22px;
   box-shadow: 0 30px 60px rgba(0,0,0,.35); display: flex; flex-direction: column; align-items: center; justify-content: center;
-  color: var(--deep); text-align: center; padding: 24px;
+  color: var(--white); text-align: center; padding: 24px;
 }
 .hero-art .bag::before {
   content: ""; position: absolute; top: 0; left: 0; right: 0; height: 26px; border-radius: 16px 16px 0 0;
-  background: repeating-linear-gradient(90deg, #e6bdb6 0 6px, var(--blush) 6px 12px);
+  background: repeating-linear-gradient(90deg, #b45b5b 0 6px, var(--coral) 6px 12px);
 }
 .bag .b-brand { font-family: "Fraunces", serif; font-weight: 700; font-size: clamp(20px, 2.4vw, 28px); line-height: 1; }
-.bag .b-line { width: 40px; height: 2px; background: var(--red); margin: 14px 0; }
+.bag .b-line { width: 40px; height: 2px; background: var(--gold); margin: 14px 0; }
 .bag .b-prod { font-family: "Fraunces", serif; font-style: italic; font-size: clamp(16px, 1.8vw, 20px); }
 .bag .b-tag { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; margin-top: 10px; color: var(--muted); }
 .hero-art .chip {
@@ -93,7 +98,7 @@ header {
 .chip.c3 { bottom: 4%; left: 8%; }
 
 /* Marquee */
-.strip { background: var(--red); color: var(--white); overflow: hidden; white-space: nowrap; padding: 14px 0; }
+.strip { background: var(--gold); color: var(--deep); overflow: hidden; white-space: nowrap; padding: 14px 0; }
 .strip-track { display: inline-flex; gap: 48px; animation: scroll 30s linear infinite; font-family: "Fraunces", serif; font-size: 20px; font-style: italic; }
 .strip-track span::after { content: "✦"; margin-left: 48px; font-style: normal; opacity: .7; }
 @keyframes scroll { to { transform: translateX(-50%); } }
@@ -108,7 +113,7 @@ section { padding: 110px 0; }
 /* Pillars */
 .pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .pillar { background: var(--white); border-radius: var(--radius); padding: 32px 26px; border: 1px solid rgba(75, 27, 31,.08); }
-.pillar .icon { width: 52px; height: 52px; border-radius: 14px; background: var(--deep); color: var(--blush); display: grid; place-items: center; margin-bottom: 22px; }
+.pillar .icon { width: 52px; height: 52px; border-radius: 14px; background: var(--deep); color: var(--gold); display: grid; place-items: center; margin-bottom: 22px; }
 .pillar .icon svg { width: 26px; height: 26px; }
 .pillar h3 { font-size: 22px; color: var(--deep); margin-bottom: 10px; }
 .pillar p { color: var(--muted); font-size: 15px; }
@@ -121,11 +126,11 @@ section { padding: 110px 0; }
 .label-card h4 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px; color: var(--muted); }
 .label-card.theirs p { color: var(--muted); font-size: 12.5px; line-height: 1.55; }
 .label-card.ours { background: var(--deep); color: var(--cream); display: flex; flex-direction: column; }
-.label-card.ours h4 { color: var(--blush); }
+.label-card.ours h4 { color: var(--gold); }
 .label-card.ours .one { font-family: "Fraunces", serif; font-size: 30px; line-height: 1.1; margin-top: auto; }
 .label-card.ours small { display: block; margin-top: 10px; color: rgba(251, 243, 240,.7); font-size: 13px; }
 .compare h2 { font-size: clamp(32px, 4vw, 48px); color: var(--deep); margin: 12px 0 18px; }
-.compare p { color: #5a4442; font-size: 17px; margin-bottom: 14px; }
+.compare p { color: #4f463f; font-size: 17px; margin-bottom: 14px; }
 
 /* Products */
 .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -149,7 +154,7 @@ section { padding: 110px 0; }
 .step { padding: 0 28px 0 0; position: relative; }
 .step::before {
   counter-increment: step; content: "0" counter(step);
-  font-family: "Fraunces", serif; font-size: 56px; color: var(--blush); opacity: .9; display: block; margin-bottom: 14px; line-height: 1;
+  font-family: "Fraunces", serif; font-size: 56px; color: var(--gold); opacity: .9; display: block; margin-bottom: 14px; line-height: 1;
 }
 .step::after { content: ""; position: absolute; top: 28px; left: 90px; right: 20px; height: 1px; background: rgba(243, 217, 212,.25); }
 .step:last-child::after { display: none; }
@@ -159,11 +164,11 @@ section { padding: 110px 0; }
 /* Pets */
 .pets-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .pet-card { border-radius: var(--radius); padding: 48px; min-height: 300px; display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; }
-.pet-card.dog { background: #f2cbc4; }
-.pet-card.cat { background: #ecdcd8; }
+.pet-card.dog { background: #f3d3c8; }
+.pet-card.cat { background: var(--sage-light); }
 .pet-card svg.pet-icon { position: absolute; top: 32px; right: 32px; width: 120px; height: 120px; opacity: .22; color: var(--deep); }
 .pet-card h3 { font-size: 36px; color: var(--deep); margin-bottom: 10px; }
-.pet-card p { color: #4a3333; max-width: 400px; }
+.pet-card p { color: #3d342f; max-width: 400px; }
 
 /* FAQ */
 .faq { background: var(--white); }
@@ -183,7 +188,7 @@ details p { margin-top: 14px; color: var(--muted); }
 .signup input {
   flex: 1; padding: 15px 22px; border-radius: 999px; border: 0; font: inherit; font-size: 15px; color: var(--ink); min-width: 0;
 }
-.signup input:focus { outline: 3px solid var(--blush); }
+.signup input:focus { outline: 3px solid var(--gold); }
 .signup .btn { background: var(--deep); color: var(--white); }
 .signup .note { font-size: 14px; margin-top: 16px; min-height: 1.4em; }
 
@@ -231,10 +236,14 @@ footer a:hover { color: var(--cream); }
 .hero { padding: 0; }
 .foot-logo { margin-bottom: 16px; }
 .foot-blurb { max-width: 320px; }
-.art-1 { background: #8e2f34; }
-.art-2 { background: #c46868; }
-.art-3 { background: #d37e7d; }
-.art-4 { background: #6a2a2f; }
-.art-5 { background: #a84a4a; }
-.art-6 { background: #4b1b1f; }
+.art-1 { background: #9a3b3b; }
+.art-2 { background: #d4a03c; }
+.art-3 { background: #d9776a; }
+.art-4 { background: #6e4a3a; }
+.art-5 { background: #7d8f6a; }
+.art-6 { background: #5c3d4f; }
 
+
+/* Red text fails AA on the oat compare panel (4.2:1), so its eyebrow uses espresso. */
+.compare .eyebrow { color: var(--deep); }
+.bag .b-tag { color: rgba(255, 253, 249, .85); }

@@ -21,3 +21,8 @@ Colors were resampled from the packaging photo: coral-red bag `#c46868`, deep ox
 Site palette: deep `#4b1b1f` · deep-2 `#6a2a2f` · red `#b04e4e` (text and buttons, 5.2:1 with white) ·
 coral `#c46868` (decorative only) · blush `#f3d9d4` · cream `#fbf3f0` · ink `#2a1214`.
 Logo v2 recolored to match (dog deep/blush, cat coral). The green v2 files are kept as `logo-v2-green-*.svg`.
+
+## Palette balanced (2026-10-01, same day)
+The all-red version felt too red. Red is now the accent only: espresso `#2e2420` darks, oat cream `#f8f3ea` /
+`#efe5d6`, sage `#7d8f6a` / `#dfe6d6`, gold `#e2b04a`, peach `#f2b8a8`; brand red `#b04e4e` + coral `#c46868`.
+Logo: espresso dog + coral cat. All-red logo copies are kept as `logo-v2-red-*.svg`.
