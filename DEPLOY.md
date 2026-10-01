@@ -44,3 +44,11 @@ make any provider's DKIM key read as revoked.
 The WAF rule blocks any path containing `/wp-`, `/.env` or `/.git`. Check before adding routes:
 `find . -type f -not -path './.git/*' | grep -iE '/wp-|/\.env|/\.git'`
 Then verify the live edge: `~/vsevens/scripts/waf-baseline.py verify primeoriginsco.com`.
+
+## Link previews & phone icons
+`og-image.png` (1200×630) is the card iMessage/WhatsApp/Facebook/X show when the link is shared;
+`apple-touch-icon.png`, `icon-*.png` and `site.webmanifest` are the home-screen/app icons.
+They are generated from the SVG logo, so after any logo or palette change run `brand/build-icons.sh`,
+then deploy. Messaging apps cache previews per URL, so an old preview can stick for a while;
+Facebook/Instagram can be refreshed at https://developers.facebook.com/tools/debug/.
+`Browser Integrity Check` is on but verified not to block the preview crawlers (2026-10-01).
