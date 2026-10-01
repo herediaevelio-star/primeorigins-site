@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Logo Concept</title>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+  body { margin: 0; min-height: 100vh; font-family: Inter, sans-serif; background: #f6f0e4; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; padding: 24px; box-sizing: border-box; }
+  h1 { font-family: Fraunces, serif; color: #1f3a2b; margin: 0; font-size: 34px; }
+  p { margin: 0; color: #5d5a52; max-width: 640px; text-align: center; }
+  .pair { display: flex; gap: 28px; flex-wrap: wrap; justify-content: center; }
+  .tile { width: 340px; height: 340px; border-radius: 28px; display: grid; place-items: center; }
+  .light { background: #fffdf8; border: 1px solid #e3dccd; } .dark { background: #1f3a2b; }
+  .tile svg { width: 260px; height: 260px; }
+  .lockup { display: flex; align-items: center; gap: 14px; background: #fffdf8; padding: 16px 26px; border-radius: 16px; }
+  .lockup svg { width: 64px; height: 64px; }
+  .lockup span { font-family: Fraunces, serif; font-weight: 700; font-size: 40px; color: #1f3a2b; }
+</style>
+</head>
+<body>
+<script src="concepts.js"></script>
+<script>
+  const id = new URLSearchParams(location.search).get('c');
+  const c = concepts.find(x => x.id === id) || concepts[0];
+  document.title = c.name.replace(/^. · /, '') + ' logo';
+  document.body.innerHTML = `<h1>${c.name}</h1><p>${c.note}</p>
+    <div class="pair"><div class="tile light">${c.svg(C.F, '#fffdf8', C.K)}</div><div class="tile dark">${c.svg(C.S, C.F, C.K)}</div></div>
+    <div class="lockup">${c.svg(C.F, '#fffdf8', C.K)}<span>Prime Origins</span></div>`;
+</script>
+</body>
+</html>
