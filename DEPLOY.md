@@ -10,7 +10,7 @@ dir first:
 
 ```bash
 DIST=$(mktemp -d)
-rsync -a --exclude .git --exclude brand --exclude DEPLOY.md ./ "$DIST"/
+./stamp.sh && rsync -a --exclude .git --exclude brand --exclude DEPLOY.md --exclude stamp.sh ./ "$DIST"/
 cd "$DIST"
 CLOUDFLARE_API_TOKEN="$(cat ~/vsevens/.cloudflare)" CLOUDFLARE_ACCOUNT_ID=<account id from ~/vsevens/cf> \
   npx wrangler@latest pages deploy . --project-name primeorigins --branch main --commit-dirty=true
